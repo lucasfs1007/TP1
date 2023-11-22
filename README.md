@@ -6,7 +6,7 @@ Trabalho 1 da disciplina TPPE no semestre 2023/2.
 | Aluno                              | Matrícula  |
 | ---------------------------------- | ---------- |
 | Lucas Felipe Soares      | 202016767 |
-| X            |y  |
+| João Pedro Alves Machado          |212008197  |
 | X| y  |
 | X             | y|
 | X           |y   |
