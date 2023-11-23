@@ -8,8 +8,8 @@ Trabalho 1 da disciplina TPPE no semestre 2023/2.
 | Lucas Felipe Soares                | 202016767  |
 | João Pedro Alves Machado           | 212008197  |
 | Lucas Gomes Caldas                 | 212005426  |
-| X             | y|
-| X           |y   |
+| Lucas Braun Vieira Xavier          | 190033088  |
+| Guilherme Rogelin Vial             | 190014032  |
 | X      |  y|
 
 ## 2. Escopo do trabalho
