@@ -32,9 +32,11 @@ class TestEstoque:
             Fornecedor("Clebão Limpão", "61734620000149"),
         )
         estoque.adicionar_produto(produto)
-        produto_encontrado = estoque.buscar_produto_por_nome("Sabão")
-        assert produto_encontrado is not None
+        resultados = estoque.buscar_produto_por_nome("Sabão")
+        assert resultados is not None
+        produto_encontrado, quantidade = next(iter(resultados.items()))
         assert produto_encontrado.nome == "Sabão"
+        assert quantidade == 1
 
     def test_buscar_produto_por_codigo_de_barras(self):
         estoque = Estoque()
@@ -48,6 +50,8 @@ class TestEstoque:
             Fornecedor("Clebão Limpão", "61734620000149"),
         )
         estoque.adicionar_produto(produto)
-        produto_encontrado = estoque.buscar_produto_por_codigo_de_barras("165316451165")
-        assert produto_encontrado is not None
+        resultados = estoque.buscar_produto_por_codigo_de_barras("165316451165")
+        assert resultados is not None
+        produto_encontrado, quantidade = next(iter(resultados.items()))
         assert produto_encontrado.codigo_de_barras == "165316451165"
+        assert quantidade == 1
