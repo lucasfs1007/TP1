@@ -1,0 +1,20 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Local configuration file (uncomment if using pyproject.toml)
+# pyproject.toml
+
+# Pytest
+.pytest_cache/
+pytest-reports/
+
+# Coverage
+.coverage
+htmlcov/
+
+# Virtual environment
+venv/
+env/
