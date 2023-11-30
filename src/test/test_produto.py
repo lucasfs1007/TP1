@@ -47,13 +47,49 @@ class TestProduto:
         )
         assert produto is not None
 
-    def test_cadastra_produto_custo_negativo(self):
+    def test_cadastra_produto_nome_vazio(self):
+        with pytest.raises(DescricaoEmBrancoException):
+            Produto(
+                "",
+                "Docinho kkk!",
+                "92531901001239",
+                2.0,
+                3.0,
+                Categoria("Alimento"),
+                Fornecedor("Nestle", "55056267000192"),
+            )
+
+    def test_cadastra_produto_descricao_vazia(self):
         with pytest.raises(DescricaoEmBrancoException):
             Produto(
                 "Chocolate",
                 "",
                 "92531901001239",
                 2.0,
+                3.0,
+                Categoria("Alimento"),
+                Fornecedor("Nestle", "55056267000192"),
+            )
+
+    def test_cadastra_produto_codigo_de_barras_vazio(self):
+        with pytest.raises(DescricaoEmBrancoException):
+            Produto(
+                "Chocolate",
+                "Docinho kkk!",
+                "",
+                2.0,
+                3.0,
+                Categoria("Alimento"),
+                Fornecedor("Nestle", "55056267000192"),
+            )
+
+    def test_cadastra_produto_custo_negativo(self):
+        with pytest.raises(ValorInvalidoException):
+            Produto(
+                "Chocolate",
+                "Docinho kkk!",
+                "92531901001239",
+                -2.0,
                 3.0,
                 Categoria("Alimento"),
                 Fornecedor("Nestle", "55056267000192"),
@@ -67,18 +103,6 @@ class TestProduto:
                 "92531901001239",
                 2.0,
                 -3.0,
-                Categoria("Alimento"),
-                Fornecedor("Nestle", "55056267000192"),
-            )
-
-    def test_cadastra_produto_descricao_vazia(self):
-        with pytest.raises(ValorInvalidoException):
-            Produto(
-                "Chocolate",
-                "Docinho kkk!",
-                "92531901001239",
-                -2.0,
-                3.0,
                 Categoria("Alimento"),
                 Fornecedor("Nestle", "55056267000192"),
             )
