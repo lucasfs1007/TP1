@@ -1,5 +1,5 @@
 import pytest
-from Produto import Produto, DescricaoEmBrancoException, ValorInvalidoException
+from Produto import Produto, CampoEmBrancoException, ValorInvalidoException
 from Categoria import Categoria
 from Fornecedor import Fornecedor
 
@@ -48,7 +48,7 @@ class TestProduto:
         assert produto is not None
 
     def test_cadastra_produto_nome_vazio(self):
-        with pytest.raises(DescricaoEmBrancoException):
+        with pytest.raises(CampoEmBrancoException, match='Nome não pode ser vazio'):
             Produto(
                 "",
                 "Docinho kkk!",
@@ -60,7 +60,7 @@ class TestProduto:
             )
 
     def test_cadastra_produto_descricao_vazia(self):
-        with pytest.raises(DescricaoEmBrancoException):
+        with pytest.raises(CampoEmBrancoException, match='Descrição não pode ser vazio'):
             Produto(
                 "Chocolate",
                 "",
@@ -72,7 +72,7 @@ class TestProduto:
             )
 
     def test_cadastra_produto_codigo_de_barras_vazio(self):
-        with pytest.raises(DescricaoEmBrancoException):
+        with pytest.raises(CampoEmBrancoException, match='Código de barras não pode ser vazio'):
             Produto(
                 "Chocolate",
                 "Docinho kkk!",
@@ -84,7 +84,7 @@ class TestProduto:
             )
 
     def test_cadastra_produto_custo_negativo(self):
-        with pytest.raises(ValorInvalidoException):
+        with pytest.raises(ValorInvalidoException, match='Custo não pode ser negativo'):
             Produto(
                 "Chocolate",
                 "Docinho kkk!",
@@ -96,7 +96,7 @@ class TestProduto:
             )
 
     def test_cadastra_produto_valor_negativo(self):
-        with pytest.raises(ValorInvalidoException):
+        with pytest.raises(ValorInvalidoException, match='Valor de venda não pode ser negativo'):
             Produto(
                 "Chocolate",
                 "Docinho kkk!",
