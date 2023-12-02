@@ -1,27 +1,28 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
+from QuantidadeProduto import QuantidadeProduto
 from Produto import Produto
 from typing import List, Union
 
+
 @dataclass
 class Estoque:
-    produtos: List[Produto]
+    _produtos: List[QuantidadeProduto] = field(default_factory=list, init=False)
 
-    def __init__(self):
-        self.produtos = []
+    def adicionar_produto(self, produto: Produto, quantidade_inicial) -> None:
+        self._produtos.append(QuantidadeProduto(produto, quantidade_inicial))
 
-    def adicionar_produto(self, produto: Produto):
-        self.produtos.append(produto)
+    def get_quantidade_produtos(self) -> int:
+        return len(self._produtos)
 
-    def buscar_produto_por_nome(self, nome: str) -> Union[dict, None]:
-        resultados = {}
-        for produto in self.produtos:
-            if produto.nome == nome:
-                resultados[produto] = resultados.get(produto, 0) + 1
-        return resultados if resultados else None
+    def buscar_produtos_por_nome(self, nome: str) -> List[QuantidadeProduto]:
+        return [qp for qp in self._produtos if nome in qp.produto.nome]
 
-    def buscar_produto_por_codigo_de_barras(self, codigo: str) -> Union[dict, None]:
-        resultados = {}
-        for produto in self.produtos:
-            if produto.codigo_de_barras == codigo:
-                resultados[produto] = resultados.get(produto, 0) + 1
-        return resultados if resultados else None
+    def buscar_produto_por_codigo_de_barras(self, codigo: str) -> QuantidadeProduto | None:
+        for qp in self._produtos:
+            if qp.produto.codigo_de_barras == codigo:
+                return qp
+        return None
+    
+    def __iter__(self):
+        for p in self._produtos:
+            yield p
