@@ -19,18 +19,18 @@ class Transacao:
     origem: str
     destino: str
 
-def __init__(
-        self,
-        produto: Produto,
-        tipo: TipoTransacao,
-        quantidade: int,
-        origem: str,
-        destino: str
-    ):
-        self.produto = produto
-        if quantidade < 0 and tipo != TipoTransacao.AJUSTE_ESTOQUE:
-            raise ValorInvalidoException('Valor de quantidade para tipo de estoque diferente de Ajuste de estoque não pode ser negativo')
-        self.quantidade = quantidade
-        self.tipo = tipo
-        self.origem = origem
-        self.destino = destino
+    def __init__(
+            self,
+            produto: Produto,
+            tipo: TipoTransacao,
+            quantidade: int,
+            origem: str,
+            destino: str
+        ):
+            self.produto = produto
+            if quantidade < 0 and tipo != TipoTransacao.AJUSTE_ESTOQUE:
+                raise ValorInvalidoException('Valor de quantidade para tipo de estoque diferente de Ajuste de estoque não pode ser negativo')
+            self.quantidade = quantidade
+            self.tipo = tipo
+            self.origem = origem
+            self.destino = destino
