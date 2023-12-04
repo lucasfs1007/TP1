@@ -16,19 +16,7 @@ Trabalho 1 da disciplina TPPE no semestre 2023/2.
 
 O trabalho apresenta o emprego das três técnicas de TDD - Test-Driven Development (falsificação, duplicação e triangulação) em, pelo menos uma, nas seguintes situações:
 
-#### Cadastro de produtos -- (descricao)
-#### Consulta de estoque -- (descricao)
-
-
-### 2.1. Fonte de dados
-
-
-### 2.2. Componentes
-
-
-
-
-### 2.3. Rodando os testes
+### 3. Rodando os testes
 
 #### Execução dos Testes Parametrizados:
 Após o download de todos os pacotes e bibliotecas, execute o seguinte comando na raiz do projeto para executar todos os testes parametrizados criados até o momento:
@@ -44,7 +32,7 @@ imagem de execução dos testes:
 
 ![Alt text](testes_rodando.png)
 
-### 2.4. Configuração de ambiente
+### 4. Configuração de ambiente
 Para configurar o ambiente, é necessário ter o Python e o pip (gerenciador de pacotes do Python) instalados. Além disso, para testar os métodos específicos de cada classe, execute os testes unitários parametrizados que avaliam os métodos escritos para cada classe.
 
 
